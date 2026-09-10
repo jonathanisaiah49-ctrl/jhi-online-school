@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JHI Online School</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    color:#222;
+}
+
+header{
+    background:#123c69;
+    color:white;
+    padding:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:21px;
+    font-weight:bold;
+}
+
+.menu{
+    font-size:28px;
+}
+
+.hero{
+    background:linear-gradient(135deg,#123c69,#1976b8);
+    color:white;
+    text-align:center;
+    padding:55px 20px;
+}
+
+.hero h1{
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:17px;
+    line-height:1.6;
+    margin-bottom:25px;
+}
+
+button{
+    border:0;
+    border-radius:8px;
+    padding:13px 20px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.yellow{
+    background:#ffb703;
+    color:#111;
+}
+
+.blue{
+    background:#123c69;
+    color:white;
+}
+
+.section{
+    max-width:1000px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+.section h2{
+    text-align:center;
+    color:#123c69;
+    margin-bottom:25px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:18px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:14px;
+    text-align:center;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.card-icon{
+    font-size:45px;
+    margin-bottom:12px;
+}
+
+.card h3{
+    color:#123c69;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#666;
+    line-height:1.5;
+    margin-bottom:18px;
+}
+
+#school{
+    display:none;
+}
+
+#lessons{
+    display:none;
+}
+
+#premium{
+    display:none;
+}
+
+.back{
+    background:#e5e5e5;
+    color:#222;
+    margin-bottom:20px;
+}
+
+.lesson{
+    background:white;
+    padding:20px;
+    margin-bottom:15px;
+    border-radius:12px;
+    box-shadow:0 3px 12px rgba(0,0,0,.07);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
+
+.lesson h3{
+    color:#123c69;
+    margin-bottom:8px;
+}
+
+.free{
+    color:green;
+    font-weight:bold;
+}
+
+.locked{
+    color:#d62828;
+    font-weight:bold;
+}
+
+.price{
+    font-size:40px;
+    font-weight:bold;
+    color:#e09b00;
+    margin:20px 0;
+}
+
+.premium-box{
+    max-width:500px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+
+.premium-box li{
+    list-style:none;
+    line-height:2;
+}
+
+footer{
+    background:#092b4c;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:30px;
+}
+
+@media(max-width:600px){
+
+    .hero h1{
+        font-size:27px;
+    }
+
+    .lesson{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .lesson button{
+        width:100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🎓 JHI Online School</div>
+    <div class="menu">☰</div>
+</header>
+
+
+<!-- HOME -->
+
+<div id="home">
+
+<section class="hero">
+
+    <h1>Learn Smarter. Pass with Confidence.</h1>
+
+    <p>
+        JCE & MSCE learning through
+        AI-powered educational lessons.
+    </p>
+
+    <button class="yellow" onclick="showSchool()">
+        Start Learning
+    </button>
+
+</section>
+
+
+<section class="section">
+
+<h2>Choose Your Level</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<div class="card-icon">📘</div>
+
+<h3>JCE</h3>
+
+<p>
+Prepare for your Junior Certificate
+examinations with structured lessons,
+videos and quizzes.
+</p>
+
+<button class="blue"
+onclick="openLevel('JCE')">
+Explore JCE
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">📚</div>
+
+<h3>MSCE</h3>
+
+<p>
+Prepare for your Malawi School Certificate
+of Education examinations.
+</p>
+
+<button class="blue"
+onclick="openLevel('MSCE')">
+Explore MSCE
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2>Why Learn With JHI?</h2>
+
+<div class="grid">
+
+<div class="card">
+<div class="card-icon">🎥</div>
+<h3>AI Lessons</h3>
+<p>
+Easy-to-understand educational
+video lessons.
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">📝</div>
+<h3>Quizzes</h3>
+<p>
+Test your knowledge after lessons.
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">📱</div>
+<h3>Learn Anywhere</h3>
+<p>
+Study using your smartphone.
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">🏆</div>
+<h3>Exam Preparation</h3>
+<p>
+Prepare for JCE and MSCE examinations.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="premium-box">
+
+<h2>JHI Premium</h2>
+
+<p>
+Your first lesson is FREE.
+Continue learning for only:
+</p>
+
+<div class="price">
+K10,000
+</div>
+
+<p>per month</p>
+
+<br>
+
+<button class="yellow"
+onclick="showPremium()">
+Subscribe
+</button>
+
+</div>
+
+</section>
+
+</div>
+
+
+<!-- SUBJECT DASHBOARD -->
+
+<section id="school" class="section">
+
+<button class="back"
+onclick="goHome()">
+← Back Home
+</button>
+
+<h2 id="levelName"></h2>
+
+<p style="text-align:center;margin-bottom:25px;color:#666;">
+Choose a subject to start learning.
+</p>
+
+<div id="subjectGrid" class="grid"></div>
+
+</section>
+
+
+<!-- LESSONS -->
+
+<section id="lessons" class="section">
+
+<button class="back"
+onclick="backToSubjects()">
+← Back to Subjects
+</button>
+
+<h2 id="subjectName"></h2>
+
+<div id="lessonList"></div>
+
+</section>
+
+
+<!-- PREMIUM -->
+
+<section id="premium" class="section">
+
+<button class="back"
+onclick="backToLessons()">
+← Back
+</button>
+
+<div class="premium-box">
+
+<div style="font-size:55px;">🔐</div>
+
+<h2>JHI Premium</h2>
+
+<p>
+This lesson requires a Premium subscription.
+</p>
+
+<div class="price">
+K10,000
+</div>
+
+<p>per month</p>
+
+<br>
+
+<ul>
+<li>✓ All JCE lessons</li>
+<li>✓ All MSCE lessons</li>
+<li>✓ AI video lessons</li>
+<li>✓ Study notes</li>
+<li>✓ Quizzes</li>
+<li>✓ Exam preparation</li>
+</ul>
+
+<br>
+
+<button class="yellow"
+onclick="subscribe()">
+Subscribe for K10,000
+</button>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<p>© 2026 JHI Online School</p>
+
+<p style="margin-top:8px;">
+JCE & MSCE Online Learning Platform
+</p>
+
+</footer>
+
+
+<script>
+
+const subjects = {
+
+JCE:[
+["📐","Mathematics"],
+["📖","English"],
+["🧬","Biology"],
+["⚗️","Physical Science"],
+["🌍","Geography"],
+["📜","History"],
+["🌱","Agriculture"],
+["💻","Computer Studies"],
+["🗣️","Chichewa"]
+],
+
+MSCE:[
+["📐","Mathematics"],
+["📖","English"],
+["🧬","Biology"],
+["⚗️","Chemistry"],
+["⚡","Physics"],
+["🌍","Geography"],
+["📜","History"],
+["🌱","Agriculture"],
+["💻","Computer Studies"],
+["💼","Business Studies"]
+]
+
+};
+
+let currentLevel="";
+let currentSubject="";
+
+
+function showSchool(){
+
+window.scrollTo(0,0);
+
+document.getElementById("home").style.display="none";
+document.getElementById("school").style.display="block";
+
+}
+
+
+function openLevel(level){
+
+currentLevel=level;
+
+document.getElementById("home").style.display="none";
+document.getElementById("lessons").style.display="none";
+document.getElementById("premium").style.display="none";
+document.getElementById("school").style.display="block";
+
+document.getElementById("levelName").innerText=
+level+" Subjects";
+
+loadSubjects();
+
+window.scrollTo(0,0);
+
+}
+
+
+function loadSubjects(){
+
+let box=document.getElementById("subjectGrid");
+
+box.innerHTML="";
+
+subjects[currentLevel].forEach(function(item){
+
+box.innerHTML+=`
+
+<div class="card"
+onclick="openSubject('${item[1]}')">
+
+<div class="card-icon">
+${item[0]}
+</div>
+
+<h3>${item[1]}</h3>
+
+<p>
+View lessons
+</p>
+
+<button class="blue">
+Open Subject
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+
+function openSubject(subject){
+
+currentSubject=subject;
+
+document.getElementById("school").style.display="none";
+document.getElementById("lessons").style.display="block";
+
+document.getElementById("subjectName").innerText=
+currentLevel+" • "+subject;
+
+loadLessons();
+
+window.scrollTo(0,0);
+
+}
+
+
+function loadLessons(){
+
+let box=document.getElementById("lessonList");
+
+box.innerHTML="";
+
+let lessons=[
+
+"Introduction to "+currentSubject,
+
+"Understanding the Basics",
+
+"Important Concepts",
+
+"Worked Examples",
+
+"Exam Preparation"
+
+];
+
+lessons.forEach(function(name,index){
+
+let number=index+1;
+
+let free=number===1;
+
+box.innerHTML+=`
+
+<div class="lesson">
+
+<div>
+
+<h3>
+Lesson ${number} — ${name}
+</h3>
+
+<p class="${free?'free':'locked'}">
+
+${free
+?"🟢 FREE LESSON"
+:"🔒 PREMIUM LESSON"}
+
+</p>
+
+</div>
+
+<button
+class="${free?'blue':'yellow'}"
+onclick="${free
+?`watchLesson('${name}')`
+:`showPremium()`}">
+
+${free
+?"▶ Watch Lesson"
+:"🔒 Unlock"}
+
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+
+function watchLesson(name){
+
+alert(
+"🎥 "+name+
+"\n\nYour AI-generated video lesson will be placed here."
+);
+
+}
+
+
+function showPremium(){
+
+document.getElementById("home").style.display="none";
+document.getElementById("school").style.display="none";
+document.getElementById("lessons").style.display="none";
+document.getElementById("premium").style.display="block";
+
+window.scrollTo(0,0);
+
+}
+
+
+function backToSubjects(){
+
+document.getElementById("lessons").style.display="none";
+document.getElementById("school").style.display="block";
+
+window.scrollTo(0,0);
+
+}
+
+
+function backToLessons(){
+
+document.getElementById("premium").style.display="none";
+document.getElementById("lessons").style.display="block";
+
+window.scrollTo(0,0);
+
+}
+
+
+function goHome(){
+
+document.getElementById("school").style.display="none";
+document.getElementById("home").style.display="block";
+
+window.scrollTo(0,0);
+
+}
+
+
+function subscribe(){
+
+alert(
+"JHI Premium\n\n"+
+"Subscription: K10,000 per month\n\n"+
+"Real payment integration will be connected next."
+);
+
+}
+
+</script>
+
+</body>
+</html>
